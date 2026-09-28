@@ -1,4 +1,17 @@
-<svg width="100%" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" role="img"><title>UCP data model: Product, Cart, Order</title><desc>Product ถูกหยิบใส่ Cart เป็น LineItem แล้ว Cart ถูกแช่แข็งเป็น Order เมื่อ checkout</desc>
+<svg width="100%" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" role="img"><title>UCP data model: Product, Cart, Order</title><desc>Product ถูกหยิบใส่ Cart เป็น LineItem แล้ว Cart ถูกแช่แข็งเป็น Order เมื่อ checkout</desc><style>
+text{font-family:-apple-system,"Helvetica Neue","Noto Sans Thai",Arial,sans-serif;}
+.box{fill:#ffffff;stroke-width:1.5;}
+.th{font-size:13px;font-weight:600;fill:#1f2937;}
+.ts{font-size:11px;fill:#4b5563;}
+.arr{stroke:#9ca3af;stroke-width:1.5;fill:none;}
+.leader{stroke:#cbd5e1;stroke-width:1.5;stroke-dasharray:3,3;fill:none;}
+.c-gray .box{stroke:#6b7280;fill:#f3f4f6;}
+.c-purple .box{stroke:#7c3aed;fill:#f3e8ff;}
+.c-teal .box{stroke:#0d9488;fill:#ccfbf1;}
+.c-coral .box{stroke:#f97316;fill:#ffedd5;}
+.c-pink .box{stroke:#db2777;fill:#fce7f3;}
+.c-blue .box{stroke:#2563eb;fill:#dbeafe;}
+</style>
 <g class="c-teal"><rect x="40" y="60" width="180" height="80" rx="4" class="box"/><text x="130" y="94" text-anchor="middle" class="th">Product</text><text x="130" y="112" text-anchor="middle" class="ts">id, price, price_usdc, stock</text></g>
 <g class="c-coral"><rect x="250" y="60" width="180" height="80" rx="4" class="box"/><text x="340" y="94" text-anchor="middle" class="th">Cart</text><text x="340" y="112" text-anchor="middle" class="ts">[]LineItem, subtotal</text></g>
 <g class="c-purple"><rect x="460" y="60" width="180" height="80" rx="4" class="box"/><text x="550" y="94" text-anchor="middle" class="th">Order</text><text x="550" y="112" text-anchor="middle" class="ts">status, total_usdc</text></g>

@@ -1,4 +1,17 @@
-<svg width="100%" viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" role="img"><title>ลำดับการสร้าง AP2 mandate chain</title><desc>มนุษย์ขอ intent mandate, ต่อด้วย cart mandate ที่ backend ตรวจงบให้ก่อนเซ็น, แล้วมนุษย์อนุมัติ payment mandate เป็นขั้นสุดท้าย</desc>
+<svg width="100%" viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" role="img"><title>ลำดับการสร้าง AP2 mandate chain</title><desc>มนุษย์ขอ intent mandate, ต่อด้วย cart mandate ที่ backend ตรวจงบให้ก่อนเซ็น, แล้วมนุษย์อนุมัติ payment mandate เป็นขั้นสุดท้าย</desc><style>
+text{font-family:-apple-system,"Helvetica Neue","Noto Sans Thai",Arial,sans-serif;}
+.box{fill:#ffffff;stroke-width:1.5;}
+.th{font-size:13px;font-weight:600;fill:#1f2937;}
+.ts{font-size:11px;fill:#4b5563;}
+.arr{stroke:#9ca3af;stroke-width:1.5;fill:none;}
+.leader{stroke:#cbd5e1;stroke-width:1.5;stroke-dasharray:3,3;fill:none;}
+.c-gray .box{stroke:#6b7280;fill:#f3f4f6;}
+.c-purple .box{stroke:#7c3aed;fill:#f3e8ff;}
+.c-teal .box{stroke:#0d9488;fill:#ccfbf1;}
+.c-coral .box{stroke:#f97316;fill:#ffedd5;}
+.c-pink .box{stroke:#db2777;fill:#fce7f3;}
+.c-blue .box{stroke:#2563eb;fill:#dbeafe;}
+</style>
 <g class="c-gray"><rect x="70" y="20" width="160" height="40" rx="4" class="box"/><text x="150" y="45" text-anchor="middle" class="th">มนุษย์ (ผู้ซื้อ)</text></g>
 <g class="c-gray"><rect x="420" y="20" width="160" height="40" rx="4" class="box"/><text x="500" y="45" text-anchor="middle" class="th">Backend (merchant)</text></g>
 <line x1="150" y1="60" x2="150" y2="300" class="leader"/>

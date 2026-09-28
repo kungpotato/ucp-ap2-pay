@@ -1,4 +1,17 @@
-<svg width="100%" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" role="img"><title>สถาปัตยกรรมรวม UCP to AP2 to X402 to Settlement</title><desc>มนุษย์มอบอำนาจให้ agent ผ่าน UCP, AP2, X402 แล้วจบด้วยการ settle เงินบนบล็อกเชนที่ fork จาก mainnet ด้วย Foundry</desc>
+<svg width="100%" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" role="img"><title>สถาปัตยกรรมรวม UCP to AP2 to X402 to Settlement</title><desc>มนุษย์มอบอำนาจให้ agent ผ่าน UCP, AP2, X402 แล้วจบด้วยการ settle เงินบนบล็อกเชนที่ fork จาก mainnet ด้วย Foundry</desc><style>
+text{font-family:-apple-system,"Helvetica Neue","Noto Sans Thai",Arial,sans-serif;}
+.box{fill:#ffffff;stroke-width:1.5;}
+.th{font-size:13px;font-weight:600;fill:#1f2937;}
+.ts{font-size:11px;fill:#4b5563;}
+.arr{stroke:#9ca3af;stroke-width:1.5;fill:none;}
+.leader{stroke:#cbd5e1;stroke-width:1.5;stroke-dasharray:3,3;fill:none;}
+.c-gray .box{stroke:#6b7280;fill:#f3f4f6;}
+.c-purple .box{stroke:#7c3aed;fill:#f3e8ff;}
+.c-teal .box{stroke:#0d9488;fill:#ccfbf1;}
+.c-coral .box{stroke:#f97316;fill:#ffedd5;}
+.c-pink .box{stroke:#db2777;fill:#fce7f3;}
+.c-blue .box{stroke:#2563eb;fill:#dbeafe;}
+</style>
 <g class="c-gray"><rect x="40" y="40" width="280" height="56" rx="4" class="box"/><text x="180" y="64" text-anchor="middle" class="th">มนุษย์ (Human)</text><text x="180" y="82" text-anchor="middle" class="ts">ตั้งงบ / มอบอำนาจ</text></g>
 <g class="c-purple"><rect x="360" y="40" width="280" height="56" rx="4" class="box"/><text x="500" y="64" text-anchor="middle" class="th">AI shopping agent</text><text x="500" y="82" text-anchor="middle" class="ts">ค้นหา / ต่อรอง / จ่ายเงินแทน</text></g>
 <line x1="180" y1="96" x2="340" y2="150" class="arr"/>

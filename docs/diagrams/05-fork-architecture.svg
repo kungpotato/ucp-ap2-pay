@@ -1,4 +1,17 @@
-<svg width="100%" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" role="img"><title>สถาปัตยกรรม anvil fork mainnet</title><desc>anvil fork ข้อมูลจริงจาก mainnet RPC แล้วรันทั้งโค้ด USDC จริงและสัญญา Settlement ที่เพิ่ง deploy บนโหนดเดียวกัน</desc>
+<svg width="100%" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" role="img"><title>สถาปัตยกรรม anvil fork mainnet</title><desc>anvil fork ข้อมูลจริงจาก mainnet RPC แล้วรันทั้งโค้ด USDC จริงและสัญญา Settlement ที่เพิ่ง deploy บนโหนดเดียวกัน</desc><style>
+text{font-family:-apple-system,"Helvetica Neue","Noto Sans Thai",Arial,sans-serif;}
+.box{fill:#ffffff;stroke-width:1.5;}
+.th{font-size:13px;font-weight:600;fill:#1f2937;}
+.ts{font-size:11px;fill:#4b5563;}
+.arr{stroke:#9ca3af;stroke-width:1.5;fill:none;}
+.leader{stroke:#cbd5e1;stroke-width:1.5;stroke-dasharray:3,3;fill:none;}
+.c-gray .box{stroke:#6b7280;fill:#f3f4f6;}
+.c-purple .box{stroke:#7c3aed;fill:#f3e8ff;}
+.c-teal .box{stroke:#0d9488;fill:#ccfbf1;}
+.c-coral .box{stroke:#f97316;fill:#ffedd5;}
+.c-pink .box{stroke:#db2777;fill:#fce7f3;}
+.c-blue .box{stroke:#2563eb;fill:#dbeafe;}
+</style>
 <g class="c-gray"><rect x="250" y="30" width="180" height="50" rx="4" class="box"/><text x="340" y="60" text-anchor="middle" class="th">Ethereum mainnet RPC</text></g>
 <line x1="340" y1="80" x2="340" y2="128" class="arr"/>
 <text x="356" y="108" class="ts">--fork-url</text>
