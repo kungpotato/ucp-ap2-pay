@@ -1,0 +1,9 @@
+<svg width="100%" viewBox="0 0 680 180" xmlns="http://www.w3.org/2000/svg" role="img"><title>เส้นทางหน้าร้าน Next.js</title><desc>ผู้ใช้เดินจากหน้าแคตตาล็อกไปหนังสือ ไปตะกร้า ไปคำสั่งซื้อ โดยแต่ละหน้าคุยกับ UCP backend ตรง ๆ</desc>
+<g class="c-teal"><rect x="20" y="50" width="140" height="60" rx="4" class="box"/><text x="90" y="76" text-anchor="middle" class="th">/ แคตตาล็อก</text><text x="90" y="94" text-anchor="middle" class="ts">GET catalog</text></g>
+<g class="c-teal"><rect x="190" y="50" width="140" height="60" rx="4" class="box"/><text x="260" y="76" text-anchor="middle" class="th">/book/[id]</text><text x="260" y="94" text-anchor="middle" class="ts">POST cart/items</text></g>
+<g class="c-coral"><rect x="360" y="50" width="140" height="60" rx="4" class="box"/><text x="430" y="76" text-anchor="middle" class="th">/cart/[id]</text><text x="430" y="94" text-anchor="middle" class="ts">POST .../order</text></g>
+<g class="c-purple"><rect x="530" y="50" width="130" height="60" rx="4" class="box"/><text x="595" y="76" text-anchor="middle" class="th">/order/[id]</text><text x="595" y="94" text-anchor="middle" class="ts">AP2 + X402</text></g>
+<line x1="160" y1="80" x2="190" y2="80" class="arr"/>
+<line x1="330" y1="80" x2="360" y2="80" class="arr"/>
+<line x1="500" y1="80" x2="530" y2="80" class="arr"/>
+</svg>

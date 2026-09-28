@@ -1,0 +1,10 @@
+<svg width="100%" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" role="img"><title>สถาปัตยกรรม anvil fork mainnet</title><desc>anvil fork ข้อมูลจริงจาก mainnet RPC แล้วรันทั้งโค้ด USDC จริงและสัญญา Settlement ที่เพิ่ง deploy บนโหนดเดียวกัน</desc>
+<g class="c-gray"><rect x="250" y="30" width="180" height="50" rx="4" class="box"/><text x="340" y="60" text-anchor="middle" class="th">Ethereum mainnet RPC</text></g>
+<line x1="340" y1="80" x2="340" y2="128" class="arr"/>
+<text x="356" y="108" class="ts">--fork-url</text>
+<g class="c-blue"><rect x="190" y="130" width="300" height="60" rx="4" class="box"/><text x="340" y="156" text-anchor="middle" class="th">Anvil fork</text><text x="340" y="174" text-anchor="middle" class="ts">chain id 31337, block ล่าสุดของ mainnet</text></g>
+<line x1="280" y1="190" x2="190" y2="238" class="arr"/>
+<line x1="400" y1="190" x2="490" y2="238" class="arr"/>
+<g class="c-teal"><rect x="60" y="240" width="260" height="60" rx="4" class="box"/><text x="190" y="266" text-anchor="middle" class="th">USDC (real mainnet code)</text><text x="190" y="284" text-anchor="middle" class="ts">โค้ด+state จริง ไม่ใช่ mock</text></g>
+<g class="c-coral"><rect x="360" y="240" width="260" height="60" rx="4" class="box"/><text x="490" y="266" text-anchor="middle" class="th">Settlement.sol</text><text x="490" y="284" text-anchor="middle" class="ts">deploy ใหม่บน fork นี้</text></g>
+</svg>

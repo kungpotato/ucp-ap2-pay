@@ -1,0 +1,9 @@
+<svg width="100%" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" role="img"><title>UCP data model: Product, Cart, Order</title><desc>Product ถูกหยิบใส่ Cart เป็น LineItem แล้ว Cart ถูกแช่แข็งเป็น Order เมื่อ checkout</desc>
+<g class="c-teal"><rect x="40" y="60" width="180" height="80" rx="4" class="box"/><text x="130" y="94" text-anchor="middle" class="th">Product</text><text x="130" y="112" text-anchor="middle" class="ts">id, price, price_usdc, stock</text></g>
+<g class="c-coral"><rect x="250" y="60" width="180" height="80" rx="4" class="box"/><text x="340" y="94" text-anchor="middle" class="th">Cart</text><text x="340" y="112" text-anchor="middle" class="ts">[]LineItem, subtotal</text></g>
+<g class="c-purple"><rect x="460" y="60" width="180" height="80" rx="4" class="box"/><text x="550" y="94" text-anchor="middle" class="th">Order</text><text x="550" y="112" text-anchor="middle" class="ts">status, total_usdc</text></g>
+<line x1="220" y1="100" x2="250" y2="100" class="arr"/>
+<text x="235" y="88" text-anchor="middle" class="ts">add item</text>
+<line x1="430" y1="100" x2="460" y2="100" class="arr"/>
+<text x="445" y="88" text-anchor="middle" class="ts">checkout</text>
+</svg>
