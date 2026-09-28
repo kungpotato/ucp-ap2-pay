@@ -10,30 +10,36 @@ import (
 )
 
 // Server wires together every layer this workshop builds, lesson by lesson:
-//   lesson 1-2: catalog, carts            (this file)
-//   lesson 4:   AP2 mandates               (mandate.go)
-//   lesson 5:   X402 payment-required flow (x402.go)
-//   lesson 6:   on-chain settlement        (chain.go, settlement.go)
+//
+//	lesson 1-2: catalog, carts            (this file)
+//	lesson 4:   AP2 mandates               (mandate.go)
+//	lesson 5:   X402 payment-required flow (x402.go)
+//	lesson 6:   on-chain settlement        (chain.go, settlement.go)
 type Server struct {
 	catalog           *Catalog
 	carts             *CartStore
 	orders            *OrderStore
 	chain             *ChainClient
-	payTo             string // merchant wallet address on the anvil fork
-	settlementAddress string // deployed Settlement.sol contract address
+	payTo             string       // merchant wallet address on the anvil fork
+	settlementAddress string       // deployed Settlement.sol contract address
+	agent             *AgentWallet // the shopping agent's own on-chain wallet (lesson 6)
 }
 
 func main() {
 	loadDotEnv("../.env", ".env")
 
 	port := getenv("PORT", "8080")
+	anvilRPC := getenv("ANVIL_RPC_URL", "http://127.0.0.1:8545")
 	s := &Server{
 		catalog:           NewCatalog(),
 		carts:             NewCartStore(),
 		orders:            NewOrderStore(),
-		chain:             NewChainClient(getenv("ANVIL_RPC_URL", "http://127.0.0.1:8545")),
+		chain:             NewChainClient(anvilRPC),
 		payTo:             getenv("MERCHANT_WALLET_ADDRESS", ""),
 		settlementAddress: getenv("SETTLEMENT_CONTRACT_ADDRESS", ""),
+	}
+	if key := os.Getenv("AGENT_PRIVATE_KEY"); key != "" {
+		s.agent = NewAgentWallet(key, anvilRPC)
 	}
 
 	mux := http.NewServeMux()
@@ -55,6 +61,7 @@ func main() {
 
 	// --- X402 + on-chain settlement (lesson 5-6) ------------------------
 	mux.HandleFunc("POST /x402/orders/{id}/pay", s.handleX402Pay)
+	mux.HandleFunc("POST /agent/orders/{id}/checkout", s.handleAgentCheckout)
 
 	log.Printf("ucp-ap2-pay backend listening on :%s", port)
 	log.Fatal(http.ListenAndServe(":"+port, withCORS(withLogging(mux))))
@@ -193,5 +200,3 @@ func (s *Server) handleGetOrder(w http.ResponseWriter, r *http.Request) {
 	}
 	writeJSON(w, http.StatusOK, order)
 }
-
-var _ = os.Getenv // keep os imported for future lessons that read more env vars
