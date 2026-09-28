@@ -6,6 +6,7 @@ dist/
 .env.local
 frontend/.env.local
 backend/bin/
+backend/backend
 contracts/out/
 contracts/cache/
 contracts/broadcast/
