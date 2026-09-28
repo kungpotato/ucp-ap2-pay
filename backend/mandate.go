@@ -61,14 +61,14 @@ type IntentMandate struct {
 // merchant is offering to fulfil for that price, not something an agent or
 // a compromised frontend fabricated.
 type CartMandate struct {
-	ID               string    `json:"id"`
-	OrderID          string    `json:"order_id"`
-	IntentMandateID  string    `json:"intent_mandate_id"`
-	TotalUSDC        int64     `json:"total_usdc"`
-	CreatedAt        time.Time `json:"created_at"`
-	Payload          string    `json:"payload"`
-	Signature        string    `json:"signature"`
-	MerchantPubKey   string    `json:"merchant_pub_key"`
+	ID              string    `json:"id"`
+	OrderID         string    `json:"order_id"`
+	IntentMandateID string    `json:"intent_mandate_id"`
+	TotalUSDC       int64     `json:"total_usdc"`
+	CreatedAt       time.Time `json:"created_at"`
+	Payload         string    `json:"payload"`
+	Signature       string    `json:"signature"`
+	MerchantPubKey  string    `json:"merchant_pub_key"`
 }
 
 // PaymentMandate: the human-in-the-loop approval to actually move money —

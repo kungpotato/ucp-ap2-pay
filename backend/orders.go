@@ -9,8 +9,8 @@ type OrderStatus string
 
 const (
 	OrderPendingMandate OrderStatus = "pending_mandate" // waiting for AP2 payment mandate (lesson 4)
-	OrderPendingPayment OrderStatus = "pending_payment"  // 402 issued, waiting for on-chain payment (lesson 5)
-	OrderPaid           OrderStatus = "paid"             // on-chain tx confirmed (lesson 6)
+	OrderPendingPayment OrderStatus = "pending_payment" // 402 issued, waiting for on-chain payment (lesson 5)
+	OrderPaid           OrderStatus = "paid"            // on-chain tx confirmed (lesson 6)
 	OrderFailed         OrderStatus = "failed"
 )
 

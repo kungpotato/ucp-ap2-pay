@@ -20,24 +20,24 @@ const orderSettledTopic0 = "0x68e713d60e84c8b6b6860d62e99941708dcbaf7ecfdc28739e
 // relays; this workshop has the agent submit the on-chain tx itself and
 // present the resulting hash — see docs/lesson-05.md for the trade-off.
 type X402PaymentRequired struct {
-	X402Version int                    `json:"x402Version"`
+	X402Version int                      `json:"x402Version"`
 	Accepts     []X402PaymentRequirement `json:"accepts"`
 }
 
 type X402PaymentRequirement struct {
-	Scheme            string `json:"scheme"`  // "exact"
-	Network           string `json:"network"` // "anvil-mainnet-fork"
-	MaxAmountRequired string `json:"maxAmountRequired"` // USDC smallest unit, as decimal string
-	Resource          string `json:"resource"`
-	PayTo             string `json:"payTo"`             // Settlement contract address
-	Asset             string `json:"asset"`             // USDC token address (mainnet)
-	Extra             map[string]string `json:"extra"`  // orderId, settlementContract
+	Scheme            string            `json:"scheme"`            // "exact"
+	Network           string            `json:"network"`           // "anvil-mainnet-fork"
+	MaxAmountRequired string            `json:"maxAmountRequired"` // USDC smallest unit, as decimal string
+	Resource          string            `json:"resource"`
+	PayTo             string            `json:"payTo"` // Settlement contract address
+	Asset             string            `json:"asset"` // USDC token address (mainnet)
+	Extra             map[string]string `json:"extra"` // orderId, settlementContract
 }
 
 // handleX402Pay is the machine-to-machine payment gate (lesson 5-6):
-//   1. No X-Payment header  -> 402 with what to pay and where.
-//   2. X-Payment: <tx hash> -> verify the on-chain receipt (lesson 6) and,
-//      only if it really paid this exact order, mark it settled.
+//  1. No X-Payment header  -> 402 with what to pay and where.
+//  2. X-Payment: <tx hash> -> verify the on-chain receipt (lesson 6) and,
+//     only if it really paid this exact order, mark it settled.
 func (s *Server) handleX402Pay(w http.ResponseWriter, r *http.Request) {
 	orderID := r.PathValue("id")
 	order, ok := s.orders.Get(orderID)
