@@ -34,6 +34,10 @@ private key ให้ agent ถือ ซึ่งไม่มีขอบเข
 
 ![AP2 mandate sequence](diagrams/03-ap2-sequence.svg)
 
+## Demo
+
+![บทที่ 3 demo](gifs/lesson-03.gif)
+
 ## ความง่ายที่ตั้งใจทำ (และข้อจำกัด)
 
 กุญแจ "ผู้ซื้อ" กับ "merchant" ถูกสร้างและเก็บไว้ **ในโปรเซส backend

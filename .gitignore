@@ -11,4 +11,6 @@ contracts/out/
 contracts/cache/
 contracts/broadcast/
 contracts/lib/
+docs/media/_frames/
+docs/scripts/node_modules/
 .DS_Store

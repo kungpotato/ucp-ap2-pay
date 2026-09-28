@@ -34,6 +34,10 @@ surface) ตามแนวคิด [UCP (Universal Commerce Protocol)](https:/
 
 ![UCP data model](diagrams/01-data-model.svg)
 
+## Demo
+
+![บทที่ 1 demo](gifs/lesson-01.gif)
+
 ## ทางเลือกอื่นที่พิจารณา
 
 - **ใช้ framework เช่น Gin/Echo** — ปัดตกเพราะ endpoint มีแค่ 6-7 เส้น

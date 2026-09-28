@@ -33,6 +33,10 @@ mainnet จริง** — ไม่ใช่เชนเปล่า ๆ ที
 
 ![anvil fork architecture](diagrams/05-fork-architecture.svg)
 
+## Demo
+
+![บทที่ 5 demo](gifs/lesson-05.gif)
+
 ## วิธีขอ USDC มาทดสอบโดยไม่ใช้เงินจริง
 
 `anvil_impersonateAccount` คือ cheat code ที่ทำงานได้เฉพาะบน local fork

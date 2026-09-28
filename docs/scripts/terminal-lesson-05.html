@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8" /><style>
+html,body{margin:0;background:#1e1e1e}
+body{font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:24px;width:900px;box-sizing:border-box}
+.line{white-space:pre-wrap;word-break:break-all;color:#d4d4d4;line-height:1.6}
+.cmd{color:#7ee787}
+.cmd::before{content:"$ ";color:#6a9955}
+.pass{color:#7ee787}
+</style></head>
+<body><div id="out"></div>
+<script>
+window.LINES = [
+  {cmd:true, text:"anvil --fork-url https://ethereum-rpc.publicnode.com --chain-id 31337 --port 8545"},
+  {cmd:false, text:"Fork  Endpoint: ethereum-rpc.publicnode.com  Block number: 26074521  Chain ID: 31337"},
+  {cmd:true, text:"cast rpc anvil_impersonateAccount 0xF977814e90dA44bFA03b6295A0616a897441aceC"},
+  {cmd:true, text:"cast send $USDC \"transfer(address,uint256)(bool)\" $PAYER 30000000 --from $WHALE --unlocked"},
+  {cmd:false, text:"status  1 (success)   -- real mainnet-forked USDC, moved with zero real dollars"},
+  {cmd:true, text:"forge test --fork-url http://127.0.0.1:8545 -vv"},
+  {cmd:false, text:"Ran 3 tests for test/Settlement.t.sol:SettlementTest"},
+  {cmd:false, text:"[PASS] test_CannotPayTheSameOrderTwice() (gas: 195637)"},
+  {cmd:false, text:"[PASS] test_PaySettlesFullAmountToMerchant() (gas: 185075)"},
+  {cmd:false, text:"[PASS] test_RevertsOnZeroAmount() (gas: 34004)"},
+  {cmd:false, text:"Suite result: ok. 3 passed; 0 failed; 0 skipped"},
+];
+function render(step){var out=document.getElementById("out");out.innerHTML="";var lines=(window.LINES||[]).slice(0,step);for(var i=0;i<lines.length;i++){var l=lines[i];var div=document.createElement("div");div.className="line"+(l.cmd?" cmd":"");div.textContent=l.text;out.appendChild(div);}}
+var params=new URLSearchParams(location.search);
+render(parseInt(params.get("step")||"0",10));
+</script></body></html>

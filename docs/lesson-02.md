@@ -33,6 +33,10 @@ self-checkout) เพิ่ม "ผู้ใช้" อีกคนเข้า�
 
 ![เส้นทางหน้าร้าน Next.js](diagrams/02-frontend-flow.svg)
 
+## Demo
+
+![บทที่ 2 demo](gifs/lesson-02.gif)
+
 ## ทางเลือกอื่นที่พิจารณา
 
 - **ทำ API routes ใน Next.js เป็นตัวกลาง (BFF)** — ปัดตก เพราะ UCP

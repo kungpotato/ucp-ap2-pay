@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8" /><style>
+html,body{margin:0;background:#1e1e1e}
+body{font-family:ui-monospace,Menlo,monospace;font-size:15px;padding:24px;width:900px;box-sizing:border-box}
+.line{white-space:pre-wrap;word-break:break-all;color:#d4d4d4;line-height:1.6}
+.cmd{color:#7ee787}
+.cmd::before{content:"$ ";color:#6a9955}
+</style></head>
+<body><div id="out"></div>
+<script>
+window.LINES = [
+  {cmd:true, text:"go run ."},
+  {cmd:false, text:"2026/09/28 14:39:59 ucp-ap2-pay backend listening on :8081"},
+  {cmd:true, text:"curl localhost:8081/ucp/catalog"},
+  {cmd:false, text:'{"products":[{"id":"bk-01","title":"The Pragmatic Agent","price":{"amount":45900,"currency":"thb"},"price_usdc":12900000,"stock":12}, ...]}'},
+  {cmd:true, text:"curl -X POST localhost:8081/ucp/cart"},
+  {cmd:false, text:'{"id":"cart_c670d65833655a5e","items":[],"created_at":"2026-09-28T14:40:00+07:00"}'},
+  {cmd:true, text:"curl -X POST .../cart/cart_c670.../items -d '{\"product_id\":\"bk-01\",\"quantity\":1}'"},
+  {cmd:true, text:"curl -X POST .../cart/cart_c670.../order"},
+  {cmd:false, text:'{"id":"order_b179cf0fd8d7a2d2","status":"pending_mandate","total":{"amount":45900,"currency":"thb"},"total_usdc":12900000}'},
+];
+function render(step){var out=document.getElementById("out");out.innerHTML="";var lines=(window.LINES||[]).slice(0,step);for(var i=0;i<lines.length;i++){var l=lines[i];var div=document.createElement("div");div.className="line"+(l.cmd?" cmd":"");div.textContent=l.text;out.appendChild(div);}}
+var params=new URLSearchParams(location.search);
+render(parseInt(params.get("step")||"0",10));
+</script></body></html>

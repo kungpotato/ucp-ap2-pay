@@ -32,6 +32,10 @@ USDC, หรืออย่างอื่นก็ได้) ทำให้ ag
 
 ![X402 sequence](diagrams/04-x402-sequence.svg)
 
+## Demo
+
+![บทที่ 4 demo](gifs/lesson-04.gif)
+
 ## บั๊กที่เจอจริงตอนสร้างบทนี้ (คุ้มค่าที่จะเล่า)
 
 ตอน verify event log ครั้งแรก โค้ดพยายามอ่าน `data` เป็น 2 คำ (64 ไบต์)

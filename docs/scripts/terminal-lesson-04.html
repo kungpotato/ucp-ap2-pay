@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8" /><style>
+html,body{margin:0;background:#1e1e1e}
+body{font-family:ui-monospace,Menlo,monospace;font-size:14px;padding:24px;width:900px;box-sizing:border-box}
+.line{white-space:pre-wrap;word-break:break-all;color:#d4d4d4;line-height:1.6}
+.cmd{color:#7ee787}
+.cmd::before{content:"$ ";color:#6a9955}
+</style></head>
+<body><div id="out"></div>
+<script>
+window.LINES = [
+  {cmd:true, text:"curl -X POST localhost:8082/x402/orders/order_.../pay"},
+  {cmd:false, text:"HTTP/1.1 402 Payment Required"},
+  {cmd:false, text:'{"x402Version":1,"accepts":[{"scheme":"exact","network":"anvil-mainnet-fork","maxAmountRequired":"12900000","payTo":"0x19D64A98...","asset":"0xA0b86991..."}]}'},
+  {cmd:true, text:"cast send $USDC \"approve(address,uint256)(bool)\" $SETTLEMENT 12900000 --private-key $PAYER_KEY"},
+  {cmd:true, text:"cast send $SETTLEMENT \"pay(bytes32,uint256)\" $ORDER_ID_B32 12900000 --private-key $PAYER_KEY"},
+  {cmd:false, text:"status: 1 (success)   tx: 0x3a3dff3137ba5b8c94e1b4de2ee170ed84562f782a4b75a9b8af85a893507b3d"},
+  {cmd:true, text:"curl -X POST .../pay -H \"X-Payment: 0x3a3dff...\""},
+  {cmd:false, text:'{"id":"order_...","status":"paid","tx_hash":"0x3a3dff3137ba5b8c94e1b4de2ee170ed84562f782a4b75a9b8af85a893507b3d"}'},
+];
+function render(step){var out=document.getElementById("out");out.innerHTML="";var lines=(window.LINES||[]).slice(0,step);for(var i=0;i<lines.length;i++){var l=lines[i];var div=document.createElement("div");div.className="line"+(l.cmd?" cmd":"");div.textContent=l.text;out.appendChild(div);}}
+var params=new URLSearchParams(location.search);
+render(parseInt(params.get("step")||"0",10));
+</script></body></html>
