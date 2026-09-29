@@ -104,3 +104,55 @@ export const createPaymentMandate = (orderId: string, cartMandateId: string, pay
 
 export const agentCheckout = (orderId: string) =>
   api<Order>(`/agent/orders/${orderId}/checkout`, { method: "POST" });
+
+// --- lesson 7: Coinbase AgentKit / AWAL autonomous shopping ----------------
+
+export type AWALGrant = {
+  id: string;
+  user_address: string;
+  max_budget_usdc: number;
+  spent_usdc: number;
+  remaining_usdc: number;
+  expires_at: string;
+  scope: string;
+  status: "active" | "exhausted" | "expired";
+  created_at: string;
+};
+
+export type AWALOrderSummary = {
+  order_id: string;
+  product_id: string;
+  title: string;
+  amount_usdc: number;
+  tx_hash: string;
+  settled_at: string;
+};
+
+export type AWALRunResult = {
+  grant: AWALGrant;
+  purchased_count: number;
+  total_spent_usdc: number;
+  remaining_usdc: number;
+  orders: AWALOrderSummary[];
+  logs: string[];
+};
+
+export const createAWALGrant = (maxBudgetUsdc: number, daysValid: number, scope: string) =>
+  api<AWALGrant>("/agent/awal/grant", {
+    method: "POST",
+    body: JSON.stringify({ max_budget_usdc: maxBudgetUsdc, days_valid: daysValid, scope }),
+  });
+
+export const listAWALGrants = () =>
+  api<{ grants: AWALGrant[] }>("/agent/awal/grants");
+
+export const runAWALAutonomous = (req: {
+  grant_id?: string;
+  max_budget_usdc?: number;
+  days_valid?: number;
+  scope?: string;
+}) =>
+  api<AWALRunResult>("/agent/awal/run", {
+    method: "POST",
+    body: JSON.stringify(req),
+  });

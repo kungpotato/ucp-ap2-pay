@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8" /><style>
+html,body{margin:0;background:#1e1e1e}
+body{font-family:ui-monospace,Menlo,monospace;font-size:13px;padding:22px;width:920px;box-sizing:border-box}
+.line{white-space:pre-wrap;word-break:break-all;color:#d4d4d4;line-height:1.55}
+.cmd{color:#7ee787}
+.cmd::before{content:"$ ";color:#6a9955}
+.tag{color:#d2a8ff;font-weight:600}
+.hl{color:#79c0ff}
+.green{color:#7ee787}
+.gold{color:#e3b341}
+</style></head>
+<body><div id="out"></div>
+<script>
+window.LINES = [
+  {cmd:true, text:"# 1. Human establishes standing allowance (Coinbase AgentKit / AWAL)"},
+  {cmd:true, text:'curl -s -X POST localhost:8080/agent/awal/grant \\\n  -d \'{"max_budget_usdc":35000000,"days_valid":7,"scope":"systems"}\' | jq'},
+  {cmd:false, text:'{\n  "id": "grant_awal_8f21bc",\n  "max_budget_usdc": 35000000,\n  "remaining_usdc": 35000000,\n  "expires_at": "2026-10-06T07:30:00Z",\n  "status": "active"\n}'},
+  {cmd:true, text:"# 2. Trigger autonomous multi-product shopping (zero per-order human clicks)"},
+  {cmd:true, text:'curl -s -X POST localhost:8080/agent/awal/run \\\n  -d \'{"grant_id":"grant_awal_8f21bc"}\' | jq'},
+  {cmd:false, text:'[AWAL:Init] Active grant verified: ID=grant_awal_8f21bc, Allowance=35.00 USDC, Valid until 2026-10-06'},
+  {cmd:false, text:'[AgentKit:Discovery] Found 2 products matching scope \'systems\' in UCP catalog'},
+  {cmd:false, text:'[AWAL:Action] Selecting "Go Without Frameworks" (14.50 USDC) -> Minting delegated AP2 mandates'},
+  {cmd:false, text:'[AWAL:Settlement] Order order_71a settled on-chain: tx=0x91d4e32a48b5... | Remaining: 20.50 USDC'},
+  {cmd:false, text:'[AWAL:Action] Selecting "Settlement Layers" (17.20 USDC) -> Minting delegated AP2 mandates'},
+  {cmd:false, text:'[AWAL:Settlement] Order order_72b settled on-chain: tx=0x38e21fc70a91... | Remaining: 3.30 USDC'},
+  {cmd:false, text:'[AWAL:Complete] Purchased 2 items autonomously on-chain. Total spent: 31.70 USDC. Allowance remaining: 3.30 USDC.'}
+];
+function render(step){var out=document.getElementById("out");out.innerHTML="";var lines=(window.LINES||[]).slice(0,step);for(var i=0;i<lines.length;i++){var l=lines[i];var div=document.createElement("div");div.className="line"+(l.cmd?" cmd":"");div.textContent=l.text;out.appendChild(div);}}
+var params=new URLSearchParams(location.search);
+render(parseInt(params.get("step")||"0",10));
+</script></body></html>

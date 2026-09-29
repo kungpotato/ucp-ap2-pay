@@ -30,9 +30,9 @@ async function shot(page, lesson, name) {
   console.log("captured", file);
 }
 
-// --- terminal-transcript lessons (01, 04, 05): no UI, replay real command
-// output that was captured by hand while building the lesson.
-const TERMINAL_LESSON_STEPS = { "01": 9, "04": 8, "05": 11 };
+// --- terminal-transcript lessons (01, 04, 05, 07): replay real command
+// output that was captured while building the lesson.
+const TERMINAL_LESSON_STEPS = { "01": 9, "04": 8, "05": 11, "07": 11 };
 
 async function captureTerminalLessons(browser) {
   for (const [lesson, steps] of Object.entries(TERMINAL_LESSON_STEPS)) {
@@ -45,6 +45,22 @@ async function captureTerminalLessons(browser) {
     }
     await page.close();
   }
+}
+
+async function renderDiagramPng(browser) {
+  const page = await browser.newPage();
+  const svgPath = path.join(ROOT, "docs", "diagrams", "07-awal-autonomous-flow.svg");
+  const pngPath = path.join(ROOT, "docs", "diagrams", "07-awal-autonomous-flow.png");
+  if (fs.existsSync(svgPath)) {
+    const svgContent = fs.readFileSync(svgPath, "utf8");
+    await page.setContent(`<!doctype html><html><body style="margin:0;padding:20px;background:#fff;">${svgContent}</body></html>`);
+    const el = await page.$("svg");
+    if (el) {
+      await el.screenshot({ path: pngPath });
+      console.log("rendered diagram PNG:", pngPath);
+    }
+  }
+  await page.close();
 }
 
 // --- UI lessons (02, 03, 06): drive the real running app end-to-end,
@@ -124,8 +140,13 @@ async function main() {
   if (!executablePath) throw new Error("Chrome not found at " + CHROME_PATHS.join(", "));
   const browser = await puppeteer.launch({ executablePath, headless: true });
 
+  await renderDiagramPng(browser);
   await captureTerminalLessons(browser);
-  await captureUiLessons(browser);
+  try {
+    await captureUiLessons(browser);
+  } catch (err) {
+    console.warn("UI lessons capture skipped:", err.message);
+  }
 
   await browser.close();
   await assembleGifs();

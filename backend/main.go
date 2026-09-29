@@ -63,6 +63,11 @@ func main() {
 	mux.HandleFunc("POST /x402/orders/{id}/pay", s.handleX402Pay)
 	mux.HandleFunc("POST /agent/orders/{id}/checkout", s.handleAgentCheckout)
 
+	// --- Lesson 7: Coinbase AgentKit / AWAL Autonomous Shopping ---------
+	mux.HandleFunc("POST /agent/awal/grant", s.handleAWALCreateGrant)
+	mux.HandleFunc("GET /agent/awal/grants", s.handleAWALListGrants)
+	mux.HandleFunc("POST /agent/awal/run", s.handleAWALRun)
+
 	log.Printf("ucp-ap2-pay backend listening on :%s", port)
 	log.Fatal(http.ListenAndServe(":"+port, withCORS(withLogging(mux))))
 }

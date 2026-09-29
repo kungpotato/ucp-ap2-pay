@@ -1,0 +1,40 @@
+<svg width="100%" viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" role="img"><title>สถาปัตยกรรม Coinbase AgentKit / AWAL Autonomous Shopping</title><desc>ผู้ใช้มอบอำนาจและวงเงินล่วงหน้า จากนั้น Agent ใช้ AWAL ในการค้นหาและชำระเงิน On-chain หลายรายการเองอัตโนมัติ</desc><style>
+text{font-family:-apple-system,"Helvetica Neue","Noto Sans Thai",Arial,sans-serif;}
+.box{fill:#ffffff;stroke-width:1.5;}
+.th{font-size:13px;font-weight:600;fill:#1f2937;}
+.ts{font-size:11px;fill:#4b5563;}
+.arr{stroke:#9ca3af;stroke-width:1.5;fill:none;}
+.leader{stroke:#cbd5e1;stroke-width:1.5;stroke-dasharray:3,3;fill:none;}
+.c-gray .box{stroke:#6b7280;fill:#f3f4f6;}
+.c-purple .box{stroke:#7c3aed;fill:#f3e8ff;}
+.c-teal .box{stroke:#0d9488;fill:#ccfbf1;}
+.c-coral .box{stroke:#f97316;fill:#ffedd5;}
+.c-pink .box{stroke:#db2777;fill:#fce7f3;}
+.c-blue .box{stroke:#2563eb;fill:#dbeafe;}
+</style>
+<g class="c-gray"><rect x="20" y="20" width="160" height="40" rx="4" class="box"/><text x="100" y="45" text-anchor="middle" class="th">มนุษย์ (Principal)</text></g>
+<g class="c-purple"><rect x="250" y="20" width="230" height="40" rx="4" class="box"/><text x="365" y="45" text-anchor="middle" class="th">Coinbase AgentKit / AWAL Layer</text></g>
+<g class="c-blue"><rect x="550" y="20" width="180" height="40" rx="4" class="box"/><text x="640" y="45" text-anchor="middle" class="th">UCP + On-chain Settlement</text></g>
+<line x1="100" y1="60" x2="100" y2="320" class="leader"/>
+<line x1="365" y1="60" x2="365" y2="320" class="leader"/>
+<line x1="640" y1="60" x2="640" y2="320" class="leader"/>
+
+<line x1="100" y1="90" x2="365" y2="90" class="arr"/>
+<text x="232" y="82" text-anchor="middle" class="ts">1. มอบสิทธิ์: วงเงิน 35 USDC + อายุ 7 วัน + Scope</text>
+
+<line x1="365" y1="130" x2="640" y2="130" class="arr"/>
+<text x="502" y="122" text-anchor="middle" class="ts">2. ค้นหาสินค้า UCP Catalog ตาม Scope</text>
+<line x1="640" y1="155" x2="365" y2="155" class="arr"/>
+<text x="502" y="147" text-anchor="middle" class="ts">รายการสินค้าที่ตรงเงื่อนไข (หลายเล่ม)</text>
+
+<line x1="365" y1="195" x2="640" y2="195" class="arr"/>
+<text x="502" y="187" text-anchor="middle" class="ts">3. วนลูป: ตรวจสอบงบคงเหลือ &lt;= 35 USDC</text>
+
+<line x1="365" y1="230" x2="640" y2="230" class="arr"/>
+<text x="502" y="222" text-anchor="middle" class="ts">4. Auto AP2 Mandate + approve + Settlement.pay()</text>
+<line x1="640" y1="255" x2="365" y2="255" class="arr"/>
+<text x="502" y="247" text-anchor="middle" class="ts">Event: OrderSettled (ตัดเงินทีละเล่ม on-chain)</text>
+
+<line x1="365" y1="295" x2="100" y2="295" class="arr"/>
+<text x="232" y="287" text-anchor="middle" class="ts">5. สรุปผล: ซื้อสำเร็จ N เล่ม + tx_hash + งบคงเหลือ</text>
+</svg>

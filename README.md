@@ -25,6 +25,7 @@ A workshop that teaches building a bookstore system where **AI agents can autono
 | 4 | [X402: Machine-to-Machine Agent Payments](docs/lesson-04.md) | ![](docs/gifs/lesson-04.gif) |
 | 5 | [On-Chain Settlement (Foundry Mainnet Fork)](docs/lesson-05.md) | ![](docs/gifs/lesson-05.gif) |
 | 6 | [Agent Self-Checkout: End-to-End Integration](docs/lesson-06.md) | ![](docs/gifs/lesson-06.gif) |
+| 7 | [Autonomous Shopping & Allowance (Coinbase AgentKit/AWAL)](docs/lesson-07.md) | ![](docs/gifs/lesson-07.gif) |
 
 Each lesson covers **Goals, Why learn this, What you'll build, Architecture Diagrams, and Alternatives Considered** — not just a blind walkthrough. Follow them sequentially in the [`docs/`](docs/) directory.
 
