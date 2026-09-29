@@ -14,3 +14,5 @@ contracts/lib/
 docs/media/_frames/
 docs/scripts/node_modules/
 .DS_Store
+frontend/AGENTS.md
+frontend/CLAUDE.md
